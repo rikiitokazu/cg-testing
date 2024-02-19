@@ -1,4 +1,4 @@
-# 🎨 CG Online Academy Webite
+# 🎨 CG Online Academy Website
 
 Website for my dad's business
 
@@ -12,12 +12,12 @@ My main goal and vision is to be able to display the 3d models and art in a visu
 
 ## ⌨️ Features/Ideas
 
-- Usng webflow or a framework like three.hs to display the 3d models on the website
+- Usng webflow or a framework like three.js to display the 3d models on the website
 - Have both English and Japanese version of the website
 
 ## 📱 Design
 
-Here is a link to the design: (Insert Figna Link)
+Here is a link to the design: (Insert Figma Link)
 
 ## 💻 Technologies
 
