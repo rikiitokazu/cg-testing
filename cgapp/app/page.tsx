@@ -3,6 +3,9 @@ import Image from 'next/image'
 import cover from "../public/cover.png"
 import pfp from "../public/pfp.png"
 import Navbar from "./components/navbar";
+import home from "./Home.module.css"
+import Three from "./components/Three";
+
 /* Navbar: Logo (Home) Register, Student Works, Free Teaching Materials, Installations, Login?
    Footer: Terms of Use (all the legal information), Refund/Return, Contact, Socials
 */
@@ -87,11 +90,12 @@ export default function Home() {
     </div>
     </section>
 
-    <section>
+<div>
 
-        <p>slideshow of pictures</p>
-    </section>
-
+  <Three />
+  <Three />
+</div>
+  
 
     </main>
   );
