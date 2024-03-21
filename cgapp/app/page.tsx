@@ -5,6 +5,7 @@ import pfp from "../public/pfp.png"
 import Navbar from "./components/navbar";
 import home from "./Home.module.css"
 import Three from "./components/Three";
+import Marquee from "react-fast-marquee";
 
 /* Navbar: Logo (Home) Register, Student Works, Free Teaching Materials, Installations, Login?
    Footer: Terms of Use (all the legal information), Refund/Return, Contact, Socials
@@ -90,11 +91,22 @@ export default function Home() {
     </div>
     </section>
 
-<div>
-
-  <Three />
-  <Three />
-</div>
+    <span className="flex items-center py-3 md:mx-72">
+          <span className="h-px flex-1 w-0.5 bg-black"></span>
+          <span className="shrink-0 px-6 text-2xl">His Works</span>
+          <span className="h-px flex-1 bg-black"></span>
+        </span>
+  <div className = "flex justify-center p-5">
+    <section className = "w-7/12">
+      <Marquee className = "w-">
+          <Three />
+          <Three />
+          <Three />
+          <Three />
+          <Three />
+      </Marquee>
+  </section>
+  </div>
   
 
     </main>
