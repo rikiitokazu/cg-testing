@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => {
     return (
-        <div className="navbar fixed left-0 top-0 bg-gray-200">
+        <div className="navbar fixed left-0 top-0 bg-neutral-700 text-neutral-200">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
