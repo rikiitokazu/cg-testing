@@ -9,7 +9,7 @@ const Faq = () => {
         open
       >
     <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-      <h2 className="text-lg font-medium text-neutral-100">
+      <h2 className="text-lg font-medium text-header">
         Lorem ipsum dolor sit amet consectetur adipisicing?
       </h2>
 
@@ -29,7 +29,7 @@ const Faq = () => {
       </span>
     </summary>
 
-    <p className="mt-4 leading-relaxed text-neutral-300">
+    <p className="mt-4 leading-relaxed text-subtext">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in,
       recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo
       consequuntur distinctio corporis earum similique!
@@ -40,7 +40,7 @@ const Faq = () => {
     className="group border-s-4 border-neutral-600 bg-gradient-to-r from-neutral-800 via-gray-700 to-neutral-800 shadow-slate-600 shadow-sm p-6 [&_summary::-webkit-details-marker]:hidden"
   >
     <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-      <h2 className="text-lg font-medium text-neutral-100">
+      <h2 className="text-lg font-medium text-header">
         Lorem ipsum dolor sit amet consectetur adipisicing?
       </h2>
 
@@ -60,7 +60,7 @@ const Faq = () => {
       </span>
     </summary>
 
-    <p className="mt-4 leading-relaxed text-neutral-300">
+    <p className="mt-4 leading-relaxed text-subtext">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in,
       recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo
       consequuntur distinctio corporis earum similique!
