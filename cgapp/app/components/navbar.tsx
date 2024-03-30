@@ -1,8 +1,9 @@
 import Link from "next/link";
 
+//z-index = z-10
 const Navbar = () => {
     return (
-        <div className="navbar fixed left-0 top-0 bg-neutral-700 text-header">
+        <div className="navbar fixed left-0 top-0 bg-neutral-700 text-header z-30">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

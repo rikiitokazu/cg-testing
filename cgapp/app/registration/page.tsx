@@ -3,60 +3,56 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Image from 'next/image';
 import Expic from "../../public/cover.png";
-
+import RegisterCard from '../components/registration/RegisterCard';
 import styles from "./Registration.module.css"
 
 // For right now, don't focus on add to cart feature, just add a register button
-// fix background
+
 const Registration = () => {
+  const tempDescription: string[] = ["Lorem ipsum dolor sit amet, consectetur adipisicing.", "Lorem ipsum dolor sit amet, consectetur adipisicing.", "Lorem ipsum dolor sit amet, consectetur adipisicing.", "Lorem ipsum dolor sit amet, consectetur adipisicing."];
+
   return (
-    <div className = "bg-neutral-900">
+    
+    <div className = "">
       <Navbar />
-        <section className = "bg-neutral-800 py-20 mt-18">
+
+      <section className = "bg-neutral-800 py-20 mt-18">
           <div className = "mt-10 text-center">
             <h1 className = "text-header text-md lg:text-lg">Register for a course</h1>
             <p className = "text-header font-bold text-xl md:text-3xl">Choose from <span className = "text-cyan-100">6</span> available.</p>
             <p className = "text-subtext text-md lg:text-lg"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, quis.</p>
           </div>
-        </section>
-
-
-      <div className = "text-white flex justify-center ">
-        <section className = {`bg-slate-600 grid grid-cols-3 w-4/6 ${styles.borderEdge} rounded-lg border-blue-900`}>
-          <div className = "p-3">
-          <Image
-              src={Expic}
-              width={330}
-              height={330}
-              className = "border-black border-2 roudned-lg"
-              alt="logo"
-            />
-          </div>
-          <div className = "relative col-span-2">
-            <div className = "flex justify-between p-3">
-              <h1 className = "font-bold text-header text-lg lg:text-2xl border-b-2 border-neutral-400">Course 1: Lorem ipsum dolor sit.</h1>
-              <h1 className = "text-green-300  text-md lg:text-xl tracking-wider">Price: $100.00</h1>
-            </div>
-            <ul className = "list-disc li ps-6">
-              <li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>
-              <li>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
-              <li>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
-              <li>Lorem ipsum dolor, sit amet consectetur adipisicing.</li>
-            </ul>
-            <div className = {styles.register}>
-               <button className="btn btn-neutral btn-sm lg:btn-md text-header">Register</button>
-            </div>
-            
-          </div>
-          <div>
-            
-          </div>
-        </section>
+      </section>
+        
+      <section className = "bg-gradient-to-b from-neutral-700 via-gray-900 to-neutral-700">
+      <RegisterCard borderColor="border-cyan-100" picture={Expic} courseHeader="Course 1" price="FREE" courseDescription={tempDescription}/>
+      <RegisterCard borderColor="border-cyan-200" picture={Expic} courseHeader="Course 2" price="FREE" courseDescription={tempDescription}/>
+      <div className = "relative z-10">
+      <RegisterCard borderColor="border-cyan-300" picture={Expic} courseHeader="Course 3" price="$100.00" courseDescription={tempDescription}/>
       </div>
+      </section>
+      
+      <section>
+      <div className="relative z-0 top-0"><svg className="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 170" x="0" y="0" ><polygon className="text-zinc-600 fill-current " points="2560 0 2560 170 0 170"></polygon></svg></div>
+      <div className = "bg-gradient-to-b from-zinc-600 via-neutral-500 to-zinc-600">
+      <RegisterCard borderColor="border-cyan-400" picture={Expic} courseHeader="Course 4" price="$120.00" courseDescription={tempDescription}/>
+      <RegisterCard borderColor="border-cyan-500" picture={Expic} courseHeader="Course 5" price="$140.00" courseDescription={tempDescription}/>
+      <RegisterCard borderColor="border-cyan-600" picture={Expic} courseHeader="Course 6" price="$160.00" courseDescription={tempDescription}/>
+      <aside className = "text-center text-slate-200 p-4">
+        Want to cancel a course? Click here
+      </aside>
+
+      </div>
+      </section>
+
+
+
+ 
 
 
       <Footer />
     </div>
+
   )
 }
 
