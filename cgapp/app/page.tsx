@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Content from "./components/home/Content";
 import Faq from "./components/home/Faq";
@@ -12,13 +12,9 @@ import Faq from "./components/home/Faq";
 export default function Home() {
   return (
     <main className = "bg-neutral-900">
-      <Navbar />
-
         {/*Home Contents/Freq Asked Question Component*/}
         <Content />
         <Faq />
-        
-      <Footer />
     </main>
   );
 }
