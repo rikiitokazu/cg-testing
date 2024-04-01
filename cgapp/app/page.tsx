@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 import Footer from "./components/Footer";
 import Content from "./components/home/Content";
 import Faq from "./components/home/Faq";
