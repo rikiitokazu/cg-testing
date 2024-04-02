@@ -1,5 +1,12 @@
-import React from 'react'
+"use client"
+import React from 'react';
 
+import { Canvas } from '@react-three/fiber';
+import { Suspense } from 'react';
+import { OrbitControls } from '@react-three/drei';
+
+import Mouse from '../components/installations/Mouse';
+import Computer from "../components/installations/Computer"
 const Installations = () => {
   return (
     <div>
@@ -84,7 +91,33 @@ const Installations = () => {
                 </div>
             </div>
         </section>
-      
+        <Canvas camera = {{
+        fov: 10,
+        position: [0,6,6]
+        }}>
+            <Suspense fallback = {<div>Loading...</div>}>
+            <ambientLight intensity={15} />
+        <spotLight position={[0,10,0]} angle={0.15} penumbra={1} decay={0} intensity={15} />
+        <pointLight position={[0,10,0]} decay={0} intensity={15} />
+        <OrbitControls />
+                <Mouse />
+
+            </Suspense>
+        </Canvas>
+
+        <Canvas camera = {{
+        fov: 90,
+        position: [0,6,6]
+        }}>
+            <Suspense fallback = {<div>Loading...</div>}>
+            <ambientLight intensity={15} />
+        <spotLight position={[0,10,0]} angle={0.15} penumbra={1} decay={0} intensity={15} />
+        <pointLight position={[0,10,0]} decay={0} intensity={15} />
+        <OrbitControls />
+
+                <Computer />
+            </Suspense>
+        </Canvas>
     </div>
   )
 }
