@@ -12,6 +12,7 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { useThree } from '@react-three/fiber'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -27,9 +28,14 @@ type ContextType = Record<string, React.ForwardRefExoticComponent<JSX.IntrinsicE
 
 export default function Computer(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/Computer/computer.gltf') as GLTFResult
+
+  const { viewport } = useThree();
+  const positionX = -(viewport.width / 2); 
+  const positionY = -(viewport.height / 2);
+  
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.retro_computer_setup_retro_computer_setup_Mat_0.geometry} material={materials.retro_computer_setup_Mat} rotation={[-Math.PI / 2, 0, 0]} scale = {0.025}/>
+      <mesh geometry={nodes.retro_computer_setup_retro_computer_setup_Mat_0.geometry} material={materials.retro_computer_setup_Mat} rotation={[-Math.PI / 2, 0, 0]} scale = {0.025} position ={[-positionX - 1.3, -2, 0]}/>
     </group>
   )
 }

@@ -6,13 +6,15 @@ import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import { OrbitControls, Scroll, ScrollControls } from '@react-three/drei';
 
-import Mouse from './Mouse';
-import Computer from "./Computer"
-const Models = () => {
+import Mouse from './models/Mouse';
+import Computer from "./models/Computer"
+
+import { TextOverlay } from './TextOverlay';
+const Background = () => {
   return (
-    <div>
+    <>
     <Canvas camera = {{
-        fov: 10,
+        fov: 30,
         position: [0,6,8]
         }}>
             <Suspense fallback = {null}>
@@ -21,10 +23,16 @@ const Models = () => {
         <pointLight position={[0,10,0]} decay={0} intensity={15} />
         <OrbitControls enableZoom = {false} />
 
-                <ScrollControls pages={3} damping={0.1}>
+                <ScrollControls pages={1.8} damping={0.1}>
                     <Scroll>
-                    <Mouse />
-                    <Computer />
+                      <group>
+                        <Mouse />
+                        <Computer />
+                      </group>
+                    </Scroll>
+
+                    <Scroll html>
+                      <TextOverlay />
                     </Scroll>
 
 
@@ -33,8 +41,8 @@ const Models = () => {
         </Canvas>
 
 
-    </div>
+    </>
   )
 }
 
-export default Models
+export default Background;

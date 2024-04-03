@@ -15,7 +15,7 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
-import { useFrame } from '@react-three/fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 import { Mesh } from 'three';
 
 type GLTFResult = GLTF & {
@@ -37,9 +37,13 @@ export default function Mouse(props: JSX.IntrinsicElements['group']) {
       ref.current.rotation.y += 0.01
   })
 
+  const { viewport } = useThree();
+  const positionX = -(viewport.width / 2); 
+  const positionY = -(viewport.height / 2);
+
   return (
     <group {...props} dispose={null}>
-      <mesh ref = {ref} geometry={nodes.Object_4.geometry} material={materials['Mouse.001']} scale={3} rotation= {[0,0,0]}/>
+      <mesh ref = {ref} geometry={nodes.Object_4.geometry} material={materials['Mouse.001']} scale={3} position = {[-positionX-3, positionY/0.40, 0 ]}/>
     </group>
   )
 }
