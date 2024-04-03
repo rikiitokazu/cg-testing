@@ -29,7 +29,7 @@ export default function Computer(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/Computer/computer.gltf') as GLTFResult
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.retro_computer_setup_retro_computer_setup_Mat_0.geometry} material={materials.retro_computer_setup_Mat} rotation={[-Math.PI / 2, 0, 0]} />
+      <mesh geometry={nodes.retro_computer_setup_retro_computer_setup_Mat_0.geometry} material={materials.retro_computer_setup_Mat} rotation={[-Math.PI / 2, 0, 0]} scale = {0.025}/>
     </group>
   )
 }

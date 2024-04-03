@@ -1,12 +1,7 @@
-"use client"
+
 import React from 'react';
+import Models from '../components/installations/Models';
 
-import { Canvas } from '@react-three/fiber';
-import { Suspense } from 'react';
-import { OrbitControls } from '@react-three/drei';
-
-import Mouse from '../components/installations/Mouse';
-import Computer from "../components/installations/Computer"
 const Installations = () => {
   return (
     <div>
@@ -15,14 +10,15 @@ const Installations = () => {
             <p className = "md:text-md text-sm"><span className = " text-cyan-100">Maya</span> and <span className = "text-cyan-100">Zoom</span></p>
         </section>
 
-        <section className = "bg-zinc-700 p-6">
+        <section className = "bg-zinc-700 p-6 grid grid-cols-1 md:grid-cols-5">
+            <section className = "col-span-4 w-full">
             <div>
                 <header>
-                    <h1 className = "text-header text-xl md:text-2xl font-bold w-1/6">Maya Installation</h1>
+                    <h1 className = "text-header text-xl md:text-2xl font-bold">Maya Installation</h1>
                     <h4 className = "text-caption font-medium italic">Please install Maya before class begins</h4>
                 </header>
 
-            <div className = "mt-3">
+                <div className = "mt-3">
                 <ol className = "list-inside list-decimal text-header">
                     <li className = "text-md md:text-lg">Check the operating environment of your computer.</li>
 
@@ -89,35 +85,38 @@ const Installations = () => {
                     <li className = "list-disc text-subtext">Recommend a large mouse with 3 buttons</li>
                 </ol>
                 </div>
-            </div>
+                </div>
+                    <div className = "divider divider-neutral py-4"></div>
+                {/*Zoom*/}
+                <div className = "">
+                    <header>
+                        <h1 className = "text-header text-xl md:text-2xl font-bold">Zoom Installation</h1>
+                        <h4 className = "text-caption font-medium italic">Please install Zoom before class begins</h4>
+                    </header>
+
+                    <div className = "mt-4">
+                        <section>
+                            <h1 className = "text-md md:text-lg text-header">Use Zoom to participate in online courses</h1>
+                            <h5 className = "italic text-caption">*Please check the class registration page for the online course schedule</h5>
+                        </section>
+
+                        <section className = "mt-3">
+                            <h1 className = "text-md md:text-lg text-header">After registering for the class, you will receive a ZOOM URL</h1>
+                            <h5 className = "italic text-caption">Clicking on it will download the app and connect automatically</h5>
+                        </section>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <section>
+                <Models />
+            </section>
         </section>
-        <Canvas camera = {{
-        fov: 10,
-        position: [0,6,6]
-        }}>
-            <Suspense fallback = {<div>Loading...</div>}>
-            <ambientLight intensity={15} />
-        <spotLight position={[0,10,0]} angle={0.15} penumbra={1} decay={0} intensity={15} />
-        <pointLight position={[0,10,0]} decay={0} intensity={15} />
-        <OrbitControls />
-                <Mouse />
 
-            </Suspense>
-        </Canvas>
 
-        <Canvas camera = {{
-        fov: 90,
-        position: [0,6,6]
-        }}>
-            <Suspense fallback = {<div>Loading...</div>}>
-            <ambientLight intensity={15} />
-        <spotLight position={[0,10,0]} angle={0.15} penumbra={1} decay={0} intensity={15} />
-        <pointLight position={[0,10,0]} decay={0} intensity={15} />
-        <OrbitControls />
 
-                <Computer />
-            </Suspense>
-        </Canvas>
     </div>
   )
 }
