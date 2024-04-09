@@ -1,20 +1,32 @@
+'use client'
 import React from 'react'
-import { Scroll, useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { useState } from "react";
+import { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from 'framer-motion';
+
+const Maya = () => {
+    const MayaRef = useRef<any>();
+    const MayaInView = useInView(MayaRef, {once:true})
+    const MayaControls = useAnimation();
+
+  
+    useEffect(() => {
+      if (MayaInView) {
+        MayaControls.start("visible");
+      }
+    }, [MayaInView, MayaControls])
 
 
-export const TextOverlay = () => {
   return (
-    <>
-        <section className = "text-header tracking-wide flex flex-col w-screen justify-center items-center py-10 bg-neutral-800">
-            <h1 className = "text-xl md:text-2xl">Needed Installations</h1>
-            <p className = "md:text-md text-sm"><span className = " text-cyan-100">Maya</span> and <span className = "text-cyan-100">Zoom</span></p>
-        </section>
-    
-        <section className = "flex flex-col w-5/6 p-6">
-            <div>
-                
+            <div ref = {MayaRef} className = "md:ms-12">
+            <motion.div variants={{
+      hidden: {opacity: 0, x:200 },
+      visible: {opacity: 1, x:0 }}}
+      initial="hidden"
+      animate={MayaControls}
+      transition={{
+        duration:0.2, delay: 0.2
+      }}
+      >
                 <header>
                     <h1 className = "text-header text-xl md:text-2xl font-bold">Maya Installation</h1>
                     <h4 className = "text-caption font-medium italic">Please install Maya before class begins</h4>
@@ -87,29 +99,10 @@ export const TextOverlay = () => {
                     <li className = "list-disc text-subtext">Recommend a large mouse with 3 buttons</li>
                 </ol>
                 </div>
+                </motion.div>
                 </div>
 
-                <div className = "divider divider-neutral py-4git "></div>
-                {/*Zoom*/}
-                <div className = "">
-                    <header>
-                        <h1 className = "text-header text-xl md:text-2xl font-bold">Zoom Installation</h1>
-                        <h4 className = "text-caption font-medium italic">Please install Zoom before class begins</h4>
-                    </header>
-
-                    <div className = "mt-4">
-                        <section>
-                            <h1 className = "text-md md:text-lg text-header">Use Zoom to participate in online courses</h1>
-                            <h5 className = "italic text-caption">*Please check the class registration page for the online course schedule</h5>
-                        </section>
-
-                        <section className = "mt-3">
-                            <h1 className = "text-md md:text-lg text-header">After registering for the class, you will receive a ZOOM URL</h1>
-                            <h5 className = "italic text-caption">Clicking on it will download the app and connect automatically</h5>
-                        </section>
-                    </div>
-                </div>
-            </section>
-    </>
   )
 }
+
+export default Maya
