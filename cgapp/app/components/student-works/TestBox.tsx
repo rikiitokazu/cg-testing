@@ -3,7 +3,7 @@ import { useScroll, ScrollControls, Scroll, OrbitControls } from '@react-three/d
 import { useLayoutEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { Mesh } from 'three';
-import gsap from "gsap";
+
 
 function Box(props:any) {
     const boxRef = useRef<Mesh>(null!);
