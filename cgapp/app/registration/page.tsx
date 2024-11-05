@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import Image from 'next/image';
 import Expic from "../../public/cover.png";
 import RegisterCard from '../components/registration/RegisterCard';
-import styles from "./Registration.module.css"
 
 // For right now, don't focus on add to cart feature, just add a register button
 
@@ -12,9 +11,7 @@ const Registration = () => {
   const tempDescription: string[] = ["Lorem ipsum dolor sit amet, consectetur adipisicing.", "Lorem ipsum dolor sit amet, consectetur adipisicing.", "Lorem ipsum dolor sit amet, consectetur adipisicing.", "Lorem ipsum dolor sit amet, consectetur adipisicing."];
 
   return (
-    
     <div className = "">
-
       <section className = "bg-neutral-800 py-12">
           <div className = "text-center">
             <h1 className = "text-header text-md lg:text-lg">Register for a course</h1>

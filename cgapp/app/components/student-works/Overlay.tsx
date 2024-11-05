@@ -9,7 +9,12 @@ import image3 from "../../../public/slideshow/imager.png";
 
 
 //change props from any to correct props
-const Section = (props: any) => {
+type SectionProps = {
+  right?: boolean,
+  opacity: number, 
+  children: React.ReactNode,
+}
+const Section = (props: SectionProps) => {
   return (
     <section
       className={`h-screen flex flex-col p-10 ${props.right ? 'items-start': 'items-end'}`}
@@ -47,7 +52,7 @@ export const Overlay = () => {
             alt = "image1"
             className = "" />
         </Section>
-        <Section right opacity={opacitySecondSection}>
+        <Section right={true} opacity={opacitySecondSection}>
             <Image 
                 src = {image2}
                 alt = "image2"
