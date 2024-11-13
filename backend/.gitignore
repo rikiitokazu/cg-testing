@@ -3,6 +3,7 @@
 #
 # Binaries for programs and plugins
 *.exe
+backend/.env
 *.exe~
 *.dll
 *.so
@@ -26,5 +27,5 @@ go.work.sum
 
 
 # air (live refresh)
-/tmp
-.air.toml
+# backend/tmp
+# backend/.air.toml
