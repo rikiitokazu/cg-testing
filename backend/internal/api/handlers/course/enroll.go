@@ -10,6 +10,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/rikiitokazu/go-backend/internal/api/models"
@@ -17,17 +18,26 @@ import (
 
 func (ch *CourseHandler) EnrollCourse(w http.ResponseWriter, r *http.Request) {
 	var req models.CourseRequest
+	authHeader := r.Header.Get("Authorization")
+	if authHeader == "" || !strings.HasPrefix(authHeader, "Bearer ") {
+		http.Error(w, "Authorization header is missing or malformed", http.StatusUnauthorized)
+		return
+	}
+
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
+
 	// Valid jwt
-	cookie, err := r.Cookie("Authorization")
-	if err != nil {
-		log.Println("Couldn't receive cookie")
-		return
-	}
-	tokenString := cookie.Value
+	// cookie, err := r.Cookie("Authorization")
+	// if err != nil {
+	// 	log.Println("Couldn't receive cookie")
+	// 	return
+	// }
+	// tokenString := cookie.Value
+
+	tokenString := authHeader[len("Bearer "):]
 	token, err := verifyToken(tokenString)
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)

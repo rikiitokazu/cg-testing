@@ -49,10 +49,15 @@ func (uh *UserHandler) LoginUser(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to parse token", http.StatusBadGateway)
 		return
 	}
+	// We don't need to return the token to the frontend
 	res := struct {
-		Token string `json:"token"`
+		Token   string   `json:"token"`
+		Name    string   `json:"name"`
+		Courses []string `json:"courses"`
 	}{
-		Token: tokenString,
+		Token:   tokenString,
+		Name:    req.Name,
+		Courses: req.RegisteredCourses,
 	}
 	jsonResponse, err := json.Marshal(res)
 	if err != nil {
@@ -61,16 +66,16 @@ func (uh *UserHandler) LoginUser(w http.ResponseWriter, r *http.Request) {
 	}
 	// send it back
 	// TODO: cookies or cache
-	cookie := http.Cookie{
-		Name:     "Authorization",
-		Value:    res.Token,
-		Path:     "/",
-		MaxAge:   3600,
-		HttpOnly: true,
-		Secure:   true,
-		SameSite: http.SameSiteLaxMode,
-	}
-	http.SetCookie(w, &cookie)
+	// cookie := http.Cookie{
+	// 	Name:     "Authorization",
+	// 	Value:    res.Token,
+	// 	Path:     "/",
+	// 	MaxAge:   3600,
+	// 	HttpOnly: true,
+	// 	Secure:   true,
+	// 	SameSite: http.SameSiteLaxMode,
+	// }
+	// http.SetCookie(w, &cookie)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(jsonResponse)
