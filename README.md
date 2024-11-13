@@ -1,6 +1,6 @@
 # 🎨 CG Online Academy Website
 
-Website for my dad's business
+Forked for testing purposes
 
 ## 🖼️ Background
 
